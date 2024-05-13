@@ -9,36 +9,32 @@
     <title>Ceneo Scraper</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <header>
+        <h1>Ceneo.pl Scraper</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary .bg-white">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">WEBSCRAPPER</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html.jinja">Strona główna</a>
+          <a style='font-size:larger' class="nav-link" aria-current="page" href="{{url_for('index')}}">Strona główna</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/extract.html.jinja">Extract</a>
+          <a style='font-size:larger' class="nav-link" href="{{url_for('extract')}}">Extract</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/product.html.jinja">Product</a>
+          <a  style='font-size:larger'class="nav-link" href="{{url_for('products')}}">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/products.html.jinja">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/author.html.jinja">Products</a>
+          <a style='font-size:larger' class="nav-link" href="{{url_for('author')}}">Author</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-    <header>
-        <h1>Ceneo.pl Scraper</h1>
-    </header>
     <section>
         {% block content %}
             <p>To jest plik bazowy</p>
