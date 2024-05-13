@@ -1,0 +1,15 @@
+header{
+    text-align: center;
+    justify-content: center;
+    margin: 50px;
+}
+section{
+    padding: 65px;
+    margin: 20px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;          
+  }
