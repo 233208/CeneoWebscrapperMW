@@ -36,8 +36,13 @@
   </div>
 </nav>
     <section>
+        <h2>
+        {% block title %}
+            
+        {% endblock %}
+        </h2>
         {% block content %}
-            <p>To jest plik bazowy</p>
+            
         {% endblock %}
     </section>
     <footer>

@@ -1,6 +1,8 @@
 {% extends 'base.html.jinja' %}
+{% block title %}
+     Strona Ekstrakcji       
+{% endblock %}
 {% block content %}
-    <h2>Ekstrakcja opinii</h2>
     <form action="{{url_for('extract')}}" method="POST" class="container">
     <div class="row g-3 align-items-center mt-3 mb-3">
         <div class="col-auto">
@@ -19,4 +21,10 @@
     </div>
     </div>
     </form>
+    {% if error is defined %}
+        <div class="alert alert-warning alert-dismissible fade show mt-3 mb-3" role="alert">
+            <strong>Uwaga!</strong> {{error}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
 {% endblock %}
