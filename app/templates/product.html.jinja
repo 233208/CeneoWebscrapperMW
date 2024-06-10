@@ -1,4 +1,38 @@
 {% extends "base.html.jinja" %}
+
 {% block content %}
-    <p>To jest strona z opiniomi o produkcie {{product_id}}.</p>
+    <h1>Product {{ product_id }} Details</h1>
+    <p>Click the buttons below to download the CSV, JSON, or XML file for the product.</p>
+    <form action="/product/download_csv/{{ product_id }}" method="get" style="margin-bottom: 10px;">
+        <button type="submit">Download CSV</button>
+    </form>
+    <form action="/product/download_json/{{ product_id }}" method="get" style="margin-bottom: 10px;">
+        <button type="submit">Download JSON</button>
+    </form>
+    <form action="/product/download_xlsx/{{ product_id }}" method="get" style="margin-bottom: 10px;">
+        <button type="submit">Download XLSX</button>
+    </form>
+
+    <h2>Opinions</h2>
+    <ul>
+        {% if opinions %}
+            {% for opinion in opinions %}
+                <li>
+                    <p><strong>Opinion ID:</strong> {{ .opinion_id }}</p>
+                    <p><strong>Author:</strong> {{ opinion.author }}</p>
+                    <p><strong>Recommendation:</strong> {{ opinion.recommendation }}</p>
+                    <p><strong>Rating:</strong> {{ opinion.rating }}</p>
+                    <p><strong>Content:</strong> {{ opinion.content }}</p>
+                    <p><strong>Pros:</strong> {{ opinion.pros | join(", ") }}</p>
+                    <p><strong>Cons:</strong> {{ opinion.cons | join(", ") }}</p>
+                    <p><strong>Useful:</strong> {{ opinion.useful }}</p>
+                    <p><strong>Useless:</strong> {{ opinion.useless }}</p>
+                    <p><strong>Post Date:</strong> {{ opinion.post_date }}</p>
+                    <p><strong>Purchase Date:</strong> {{ opinion.purchase_date }}</p>
+                </li>
+            {% endfor %}
+        {% else %}
+            <p>No opinions available for this product.</p>
+        {% endif %}
+    </ul>
 {% endblock %}

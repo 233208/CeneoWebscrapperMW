@@ -85,6 +85,7 @@ def author():
 
 @app.route('/product/<product_id>')
 def product(product_id):
+    
     return render_template("product.html.jinja", product_id=product_id)
 
 @app.route('/product/download_json/<product_id>')
@@ -100,3 +101,6 @@ def download_csv(product_id):
 @app.route('/product/download_xlsx/<product_id>')
 def download_xlsx(product_id):
     pass
+
+if __name__ == '__main__':
+    app.run(debug=True)
